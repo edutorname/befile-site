@@ -1,0 +1,91 @@
+// ========================================
+// Shadow Widget Card
+// ========================================
+.shadow-card {
+  min-height: 160px;
+
+  &:hover .shadow-bg {
+    transform: scale(1.05);
+    filter: brightness(var(--shadow-brightness-hover)) blur(1px);
+  }
+
+  .shadow-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('../../../../../assets/images/shadow.webp');
+    background-size: cover;
+    background-position: center 55%;
+    filter: brightness(var(--shadow-brightness));
+    transition: all 0.5s ease;
+    z-index: 0;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--shadow-overlay);
+    }
+  }
+
+  .shadow-content {
+    position: relative;
+    z-index: 1;
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .shadow-role {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+
+    fa-icon {
+      color: var(--text-primary);
+      font-size: 1.1rem;
+      filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.15));
+    }
+
+    span {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  .shadow-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text-primary);
+    border-left: 3px solid var(--border-hover);
+    padding-left: 1rem;
+    opacity: 0.95;
+    min-height: 4.5em;
+    display: flex;
+    align-items: center;
+  }
+
+  .typewriter-cursor {
+    display: inline;
+    color: var(--text-primary);
+    font-weight: 400;
+    margin-left: 2px;
+    animation: blink 1s step-end infinite;
+    text-shadow: 0 0 8px var(--mouse-glow);
+    vertical-align: baseline;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+}
